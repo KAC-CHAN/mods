@@ -1,5 +1,9 @@
+
+
+
 from telethon import TelegramClient, events
-from pytube import Search, YouTube
+from youtube_search import YoutubeSearch
+from pytubefix import YouTube
 import os
 import asyncio
 
@@ -18,17 +22,18 @@ async def song_downloader(event):
             await event.reply("Please enter a song name after /song command!")
             return
 
-        # Search for the song on YouTube
-        search = Search(song_name)
-        results = list(search.results)
-        
+        # Search YouTube using youtube-search-python
+        results = YoutubeSearch(song_name, max_results=1).to_dict()
         if not results:
             await event.reply("No results found 😞")
             return
 
-        # Get first result
-        video = results[0]
-        audio_stream = video.streams.filter(only_audio=True).first()
+        video_id = results[0]['id']
+        yt_url = f"https://youtube.com/watch?v={video_id}"
+        
+        # Create YouTube object
+        yt = YouTube(yt_url)
+        audio_stream = yt.streams.filter(only_audio=True).order_by('abr').desc().first()
         
         if not audio_stream:
             await event.reply("Couldn't find audio stream 😢")
@@ -43,8 +48,12 @@ async def song_downloader(event):
         new_file = base + ".mp3"
         os.rename(download_path, new_file)
         
+        # Get video details
+        views = f"{int(yt.views):,}"
+        title = yt.title
+
         # Send audio with metadata
-        caption = f"🎵 **Title:** {video.title}\n👁️ **Views:** {video.views:,}"
+        caption = f"🎵 **Title:** {title}\n👁️ **Views:** {views}"
         await event.reply(caption, file=new_file)
         
         # Clean up
