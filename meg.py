@@ -4,9 +4,9 @@ from pyrogram import Client, filters
 from mega import Mega
 
 # Bot configuration
-API_ID = "YOUR_API_ID"  # Get from https://my.telegram.org
-API_HASH = "YOUR_API_HASH"  # Get from https://my.telegram.org
-BOT_TOKEN = "YOUR_BOT_TOKEN"  # Get from @BotFather
+API_ID = '26788480'
+API_HASH = '858d65155253af8632221240c535c314'
+BOT_TOKEN = '7224277474:AAE90HkXGo29T2A9UsdQ7P53RL5dihtzemo'
 
 # Initialize Pyrogram client
 app = Client("mega_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
