@@ -6,10 +6,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-API_ID = int(os.getenv("API_ID", "26788480"))
-API_HASH = os.getenv("API_HASH", "858d65155253af8632221240c535c314")
-BOT_TOKEN = os.getenv("BOT_TOKEN", "7224277474:AAERIx4M_R62CI6dX5ouwuZpPZ6MerZG4Nw")
-STABILITY_KEY = os.getenv("STABILITY_KEY", "sk-f4HmOQvBhKYcYdJAhmpStu1y7A22d9T1wlQOYZsPIkxZtl5a")
+API_ID = int(os.getenv("API_ID", ""))
+API_HASH = os.getenv("API_HASH", "")
+BOT_TOKEN = os.getenv("BOT_TOKEN", "")
+STABILITY_KEY = os.getenv("STABILITY_KEY", "")
 
 client = TelegramClient('ai_art_bot', API_ID, API_HASH).start(bot_token=BOT_TOKEN)
 
