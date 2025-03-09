@@ -1,5 +1,3 @@
-
-
 from telethon import TelegramClient, events
 import yt_dlp
 import os
