@@ -5,9 +5,9 @@ import asyncio
 
 
 # Replace these with your own values
-API_ID = '26788480'
-API_HASH = '858d65155253af8632221240c535c314'
-BOT_TOKEN = '7222795881:AAFJttyGTf6aKtImylkUW4g0R6ik8ZRpTcI'
+API_ID = ''
+API_HASH = ''
+BOT_TOKEN = ''
 
 client = TelegramClient('song_bot', API_ID, API_HASH).start(bot_token=BOT_TOKEN)
 
