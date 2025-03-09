@@ -4,7 +4,7 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
 
 # Initialize bot with your token from BotFather
-TOKEN = "7224277474:AAFkYSWE0kHzw9r1WQnp5n7D1tJrtSLr1lg"
+TOKEN = ""
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text('Send /download [xHamster_URL] to download a video.')
